@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans);
+
+body {
+  background-color: #FFEA00;
+  font-family: "Josefin Sans";
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+.images {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+
+button {
+  background-color: #FFEA00;
+  border-radius: 8px;
+  border-color: black;
+}
+
+kbd {
+  font-size: 32px;
+  font-weight: bold;
+  font-family: "Josefin Sans";
+}
