@@ -24,6 +24,12 @@ button {
   border-color: black;
 }
 
+.playing {
+  transform: scale(1.1);
+  border-color: black;
+  box-shadow: 0 0 1rem black;
+}
+
 kbd {
   font-size: 32px;
   font-weight: bold;
