@@ -7,6 +7,7 @@ const choices = document.querySelector(".choices");
 const result = document.querySelector(".result");
 const results = document.querySelector(".results");
 const declare = document.querySelector(".declaration");
+const images = document.querySelector(".images");
 
 declare.textContent = "Make your move: (R)ock, (P)aper, or (S)cissors";
 
@@ -49,23 +50,24 @@ function playRound() {
   results.textContent = `Wins: ${wins} Losses: ${losses} Draws: ${draws}`;
 }
 
-window.addEventListener("keydown", function clicking(e) {
+function clicking(e) {
   userChoice = `${e.key}`.toUpperCase();
   if (userChoice === "R" || userChoice === "P" || userChoice === "S") {
     playRound();
     if (wins === 5) {
-      this.window.removeEventListener("keydown", clicking);
       results.textContent = "WOOHOO!!! YOU HAVE WON THE GAME!"
+      window.removeEventListener("keydown", clicking);
+      images.removeEventListener("click", buttoning);
     }
     if (losses === 5) {
-      this.window.removeEventListener("keydown", clicking);
       results.textContent = "Bummer! You have lost the game :("
+      window.removeEventListener("keydown", clicking);
+      images.removeEventListener("click", buttoning);
     }
   }
-});
+};
 
-const images = document.querySelector(".images")
-images.addEventListener("click", function buttoning(e) {
+function buttoning(e) {
   let target = e.target.className;
   if (target === "rock") {
     userChoice = "R";
@@ -81,11 +83,18 @@ images.addEventListener("click", function buttoning(e) {
   }
   playRound();
   if (wins === 5) {
-    images.removeEventListener("click", buttoning);
     results.textContent = "WOOHOO!!! YOU HAVE WON THE GAME!"
+    window.removeEventListener("keydown", clicking);
+    images.removeEventListener("click", buttoning);
   }
   if (losses === 5) {
-    images.removeEventListener("click", buttoning);
     results.textContent = "Bummer! You have lost the game :("
+    window.removeEventListener("keydown", clicking);
+    images.removeEventListener("click", buttoning);
   }
-});
+};
+
+if(wins <= 5 || losses <=5) {
+  this.window.addEventListener("keydown", clicking);
+  images.addEventListener("click", buttoning);
+}
