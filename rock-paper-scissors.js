@@ -55,12 +55,12 @@ function clicking(e) {
   if (userChoice === "R" || userChoice === "P" || userChoice === "S") {
     playRound();
     if (wins === 5) {
-      results.textContent = "WOOHOO!!! YOU HAVE WON THE GAME!"
+      results.textContent = "WOOHOO!!! YOU HAVE WON THE GAME! " + `Wins: ${wins} Losses: ${losses} Draws: ${draws}`
       window.removeEventListener("keydown", clicking);
       images.removeEventListener("click", buttoning);
     }
     if (losses === 5) {
-      results.textContent = "Bummer! You have lost the game :("
+      results.textContent = "Bummer! You have lost the game :( " + `Wins: ${wins} Losses: ${losses} Draws: ${draws}`
       window.removeEventListener("keydown", clicking);
       images.removeEventListener("click", buttoning);
     }
@@ -83,18 +83,18 @@ function buttoning(e) {
   }
   playRound();
   if (wins === 5) {
-    results.textContent = "WOOHOO!!! YOU HAVE WON THE GAME!"
+    results.textContent = "WOOHOO!!! YOU HAVE WON THE GAME! " + `Wins: ${wins} Losses: ${losses} Draws: ${draws}`
     window.removeEventListener("keydown", clicking);
     images.removeEventListener("click", buttoning);
   }
   if (losses === 5) {
-    results.textContent = "Bummer! You have lost the game :("
+    results.textContent = "Bummer! You have lost the game :( " + `Wins: ${wins} Losses: ${losses} Draws: ${draws}`
     window.removeEventListener("keydown", clicking);
     images.removeEventListener("click", buttoning);
   }
 };
 
-if(wins <= 5 || losses <=5) {
+if(wins <= 5 || losses <= 5) {
   this.window.addEventListener("keydown", clicking);
   images.addEventListener("click", buttoning);
 }
